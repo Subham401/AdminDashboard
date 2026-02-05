@@ -1,31 +1,18 @@
-package com.company.admindashboard.entity;
+package com.company.admindashboard.dto;
 
-import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
-@Entity
-@Table(name = "users")
-public class UserEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false,unique = true)
+public class UserRequest {
+    @NotBlank
     private String username;
 
-    @Column(nullable = false)
+    @NotBlank
+    @Size(min =  8)
     private String password;
 
-    @Column(nullable = false)
+    @NotBlank
     private String role;
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
